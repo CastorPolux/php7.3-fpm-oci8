@@ -1,6 +1,6 @@
 FROM php:7.3.27-fpm
 
-MAINTAINER Domingos Coelho <domingosjunior87@gmail.com>
+MAINTAINER João Leno <joaoleno@gmail.com>
 
 ENV LD_LIBRARY_PATH /opt/oracle/instantclient_12_1/
 
@@ -19,5 +19,5 @@ RUN unzip /opt/oracle/instantclient-basic-linux.x64-12.1.0.2.0.zip -d /opt/oracl
     && rm -rf /opt/oracle/*.zip
 
 # Install Oracle extensions
-RUN echo 'instantclient,/opt/oracle/instantclient_12_1/' | pecl install oci8 \
+RUN echo 'instantclient,/opt/oracle/instantclient_12_1/' | pecl install oci8-2.2.0 \
     && docker-php-ext-enable oci8
